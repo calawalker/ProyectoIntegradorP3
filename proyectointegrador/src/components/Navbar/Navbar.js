@@ -1,18 +1,17 @@
 import React from 'react';
 
-function Navbar(){
+function Navbar(props){
 
     return (
         <nav>
             <ul className="main-nav">
-                <li><img src="./img/logo.png" alt=""/></li>
-                <li>Home</li>
-                <li>Favoritos</li>
-                <li>Ver todas</li>
+                {props.opciones.map((opcion, idx) => <li key={opcion + idx}>{opcion}</li>)}
             </ul>
             <ul className="user">
-                <li>Nombre usuario <img src="" alt=""/></li>
-            </ul>
+            <li>{props.nombre}
+                <img src= "./img/logo.png" alt="logo" />
+            </li>
+        </ul>
         </nav>
     )
 }
