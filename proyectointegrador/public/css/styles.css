@@ -13,7 +13,8 @@ a {
     color: #000;
 }
 body {
-    font-family: Nunito;
+    font-family: Josefin sans;
+    font-size: 20px;
     margin: 0;
     background-color: #eee;
 }
@@ -25,7 +26,7 @@ nav{
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 0 20px;
-    background-color: #4e73df;
+    background-color: #545453;
     color: #fff
 }
 
@@ -103,7 +104,7 @@ main {
 .general-data .card {
     width: 32%;
     border-radius: 4px;
-    background-color: #36b9cc;
+    background-color: hsl(268, 64%, 81%);
     margin-bottom: 10px;
     padding: 0 20px;
     color: #fff;
