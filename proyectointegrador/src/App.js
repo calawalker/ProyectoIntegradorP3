@@ -1,13 +1,12 @@
 import React from 'react'
 import Navbar from './components/Navbar/Navbar'
-import Albumes from './components/Albumes/Albumes'
 import Footer from "./components/Footer/Footer"
-import Artistas from "./components/Podcasts/Podcasts"
+import Home from "./screens/Home/Home"
 
 
 function App() {
 
-const opciones = ["Home", "Favoritos", "Ver todas"]
+const opciones = ["Home", "Favoritos", "Ver todos los albumes", "Ver todos los podcasts"]
 const nombre = "Vibras con onda"
 
 
@@ -15,15 +14,7 @@ const nombre = "Vibras con onda"
 
     <>
       <Navbar opciones={opciones} nombre={nombre}/>
-      <main>
-
-      <h2>ALBUMES</h2>
-      <Albumes />
-      <h2>PODCASTS</h2>
-      <Artistas />
-
-      </main>
-
+      <Home/>
       <Footer/>
     </>
   );

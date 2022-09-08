@@ -30,6 +30,8 @@ class Podcasts extends Component {
     return (
 
         <>
+        <h2>PODCASTS</h2>
+            <h3> Ver todos los podcasts</h3> {/* esto desp va a ser un boton  */}
      <section className="card-container">
             {
                 this.state.podcasts.length > 0 ?
