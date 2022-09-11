@@ -37,10 +37,7 @@ class Albumes extends Component {
             {
                 this.state.albumes.length > 0 ?
                     this.state.albumes.map((album, idx) => 
-                    <Album
-                    key={album + idx} 
-                    info={album} 
-                    />):
+                    <Album key={album + idx}  info={album} />):
                 <h1>Cargando..</h1>
             }
       </section> 
