@@ -1,22 +1,22 @@
 import React, {Component} from 'react'
-import Podcast from '../Podcast/Podcast';
+import Track from '../Track/Track';
 
 
-class Podcasts extends Component {
+class Tracks extends Component {
 
     constructor(props){
         super(props)
         this.state={
-            podcasts: [],
+            tracks: [],
             backup: []
         }
     }
 
     componentDidMount(){
-        fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/podcasts')
+        fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/tracks')
         .then(resp => resp.json())
         .then(data => this.setState({
-            podcasts: data.data,
+            tracks: data.data,
             backup:data.data
         }))
         .catch(err => console.log(err)) 
@@ -30,15 +30,15 @@ class Podcasts extends Component {
     return (
 
         <>
-        <h2>PODCASTS</h2>
-            <h3> Ver todos los podcasts</h3> {/* esto desp va a ser un boton  */}
+        <h2>TRACKS</h2>
+            <h3> Ver todos los tracks</h3> {/* esto desp va a ser un boton  */}
      <section className="card-container">
             {
-                this.state.podcasts.length > 0 ?
-                    this.state.podcasts.map((podcast, idx) => 
-                    <Podcast
-                    key={podcast + idx} 
-                    info={podcast} 
+                this.state.tracks.length > 0 ?
+                    this.state.tracks.map((track, idx) => 
+                    <Track
+                    key={track + idx} 
+                    info={track} 
                     />):
                 <h1>Cargando..</h1>
             }
@@ -50,4 +50,4 @@ class Podcasts extends Component {
     }
 }
 
-export default Podcasts
+export default Tracks

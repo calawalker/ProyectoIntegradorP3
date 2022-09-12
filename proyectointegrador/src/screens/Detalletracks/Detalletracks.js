@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Detallepodcast extends Component {
+class Detalletracks extends Component {
 
     constructor(props) {
         super(props)
@@ -22,13 +22,15 @@ class Detallepodcast extends Component {
     render() {
         return (
             <div>
-                <p>
-                    hola manola soy podcast
-                </p>
-                {/* img src={this.state.album.cover} /> */}
+               <h1>{this.state.album.title}</h1>
+               <img src={this.state.album.cover} alt="" />
+               <h3>Duration: {this.state.album.duration}</h3>
+               <h3>Fans: {this.state.album.fans}</h3>
+               <h3>Release date: {this.state.album.release_date}</h3>
+             
             </div>
         )
     }
 }
 
-export default Detallepodcast
+export default Detalletracks

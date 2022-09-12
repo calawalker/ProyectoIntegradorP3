@@ -9,7 +9,7 @@ import Vertodoslosalbumes from "../../screens/Vertodoslosalbumes/Vertodoslosalbu
 import Vertodoslospodcasts from "../../screens/Vertodoslospodcasts/Vertodoslospodcasts"
 import Notfound from "../../screens/Notfound/Notfound"
 import Detallealbum from "../../screens/Detallealbum/Detallealbum"
-import Detallepodcast from "../../screens/DetallePodcast/DetallePodcast"
+import Detalletracks from "../../screens/Detalletracks/Detalletracks"
 
 class Navbar extends Component {
 
@@ -61,7 +61,7 @@ class Navbar extends Component {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/favoritos">Favoritos</Link></li>
                         <li><Link to="/todoslosalbumes">Todos los albumes</Link></li>
-                        <li><Link to="/todoslospodcasts">Todos los podcasts</Link></li>
+                        <li><Link to="/todoslostracks">Todos los tracks</Link></li>
                     </ul>
                     <ul><Search filtrar={(nombre) => this.filtrarAlbumes(nombre)} /></ul>
                     <ul className="user">
@@ -76,7 +76,7 @@ class Navbar extends Component {
                     <Route path='/todoslosalbumes' component={Vertodoslosalbumes} />
                     <Route path='/todoslospodcasts' component={Vertodoslospodcasts} />
                     <Route path='/detallealbum/:id' component={Detallealbum} ></Route>
-                    <Route path='/detallepodcast/:id' component={Detallepodcast} ></Route>
+                    <Route path='/detalletracks/:id' component={Detalletracks} ></Route>
                     <Route path='' component={Notfound} />
                 </Switch>
             </>

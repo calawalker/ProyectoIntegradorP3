@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+
 class Detallealbum extends Component {
 
     constructor(props) {
@@ -13,17 +14,23 @@ class Detallealbum extends Component {
     componentDidMount() {
         fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/album/${this.state.id}`)
             .then(resp => resp.json())
-            .then(data => this.setState({
+            .then(data => {
+                console.log(data);
+                this.setState({
                 album: data
-            }))
+            })})
             .catch(err => console.log(err))
     }
 
     render() {
         return (
             <div>
-               <h4>{this.props.album.title}</h4>
-               <img src={this.props.album.cover} alt="" />
+               <h1>{this.state.album.title}</h1>
+               <img src={this.state.album.cover} alt="" />
+               <h3>Duration: {this.state.album.duration}</h3>
+               <h3>Fans: {this.state.album.fans}</h3>
+               <h3>Release date: {this.state.album.release_date}</h3>
+             
             </div>
         )
     }
