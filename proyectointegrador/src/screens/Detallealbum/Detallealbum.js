@@ -22,10 +22,8 @@ class Detallealbum extends Component {
     render() {
         return (
             <div>
-                <p>
-                    hola manola
-                </p>
-                {/* img src={this.state.album.cover} /> */}
+               <h4>{this.props.album.title}</h4>
+               <img src={this.props.album.cover} alt="" />
             </div>
         )
     }

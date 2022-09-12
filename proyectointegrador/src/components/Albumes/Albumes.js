@@ -34,8 +34,6 @@ class Albumes extends Component {
                 <h2>ALBUMES</h2>
                 <h3> Ver todos los albumes</h3> {/* esto desp va a ser un boton  */}
 
-
-
                 <section className="card-container">
                     {
                         this.state.albumes.length > 0 ?

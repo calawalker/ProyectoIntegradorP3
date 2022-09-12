@@ -30,7 +30,6 @@ class Podcast extends Component{
                 <img src={this.props.info.picture} alt="" />
                 <h4>{this.props.info.title}</h4>
                 
-                
                 <p className={this.state.verMas}>{this.props.info.description}</p> 
     
                <button onClick={()=>this.verMas()}>Ver más</button>  
