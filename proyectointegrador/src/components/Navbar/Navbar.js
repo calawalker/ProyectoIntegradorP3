@@ -9,6 +9,7 @@ import Vertodoslosalbumes from "../../screens/Vertodoslosalbumes/Vertodoslosalbu
 import Vertodoslospodcasts from "../../screens/Vertodoslospodcasts/Vertodoslospodcasts"
 import Notfound from "../../screens/Notfound/Notfound"
 import Detallealbum from "../../screens/Detallealbum/Detallealbum"
+import Detallepodcast from "../../screens/DetallePodcast/DetallePodcast"
 
 class Navbar extends Component {
 
@@ -75,11 +76,8 @@ class Navbar extends Component {
                     <Route path='/todoslosalbumes' component={Vertodoslosalbumes} />
                     <Route path='/todoslospodcasts' component={Vertodoslospodcasts} />
                     <Route path='/detallealbum/:id' component={Detallealbum} ></Route>
+                    <Route path='/detallepodcast/:id' component={Detallepodcast} ></Route>
                     <Route path='' component={Notfound} />
-
-
-
-
                 </Switch>
             </>
         )

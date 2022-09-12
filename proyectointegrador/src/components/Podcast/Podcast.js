@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './style.css'
+import { Link } from 'react-router-dom';
 
 class Podcast extends Component{ 
 
@@ -27,11 +28,10 @@ class Podcast extends Component{
     render(){
         return (
           <div className="album-card">
-                <img src={this.props.info.picture} alt="" />
+               
+                <li><Link to={`/detallepodcast/${this.props.info.id}`} >  <img src={this.props.info.picture} alt="" />
                 <h4>{this.props.info.title}</h4>
-                
-                
-                <p className={this.state.verMas}>{this.props.info.description}</p> 
+                <p className={this.state.verMas}>{this.props.info.description}</p> </Link></li>
     
                <button onClick={()=>this.verMas()}>Ver más</button>  
           </div>
