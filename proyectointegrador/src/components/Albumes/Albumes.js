@@ -17,7 +17,7 @@ class Albumes extends Component {
         fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/albums')
             .then(resp => resp.json())
             .then(data => this.setState({
-                albume: data.data,
+                albumes: data.data,
                 backup: data.data
             }))
             .catch(err => console.log(err))
