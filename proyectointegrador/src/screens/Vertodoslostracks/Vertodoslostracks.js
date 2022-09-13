@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
-import { Link } from 'react-router-dom';
-import Track from '../Track/Track';
+
+import Track from '../../components/Track/Track' 
 
 
-class Tracks extends Component {
+class Vertodoslostracks extends Component {
 
     constructor(props){
         super(props)
@@ -32,7 +32,8 @@ class Tracks extends Component {
 
         <>
         <h2>TRACKS</h2>
-        <h3><Link to="/todoslostracks">Todos los tracks</Link></h3>
+                        
+      
      <section className="card-container">
             {
                 this.state.tracks.length > 0 ?
@@ -50,5 +51,4 @@ class Tracks extends Component {
     )
     }
 }
-
-export default Tracks
+export default Vertodoslostracks

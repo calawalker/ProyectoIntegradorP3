@@ -11,7 +11,7 @@ class Detalletracks extends Component {
     }
 
     componentDidMount() {
-        fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/podcast/${this.state.id}`)
+        fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/track/${this.state.id}`)
             .then(resp => resp.json())
             .then(data => this.setState({
                 podcast: data

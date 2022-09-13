@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import Album from '../Album/Album';
 
 
@@ -32,7 +33,8 @@ class Albumes extends Component {
 
             <>
                 <h2>ALBUMES</h2>
-                <h3> Ver todos los albumes</h3> {/* esto desp va a ser un boton  */}
+
+                <h3><Link to="/todoslosalbumes">Todos los albumes</Link></h3>
 
                 <section className="card-container">
                     {
