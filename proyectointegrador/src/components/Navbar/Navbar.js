@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Search from '../Search/Search';
 import './style.css'
 import { Link } from 'react-router-dom';
 import { Route, Switch } from 'react-router-dom'
@@ -35,14 +34,7 @@ class Navbar extends Component {
     componentDidUpdate() {
     }
 
-    buscar(id) {
-        fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/album/${id}`)
-            .then(resp => resp.json())
-            .then(data => this.setState({
-                albums: data.results
-            }))
-            .catch(err => console.log(err))
-    }
+   
 
     /*     filtrarAlbumes(title){
             let arrayFiltrado = 
@@ -63,7 +55,7 @@ class Navbar extends Component {
                         <li><Link to="/todoslosalbumes">Todos los albumes</Link></li>
                         <li><Link to="/todoslostracks">Todos los tracks</Link></li>
                     </ul>
-                    <ul><Search filtrar={(nombre) => this.filtrarAlbumes(nombre)} /></ul>
+                    
                     <ul className="user">
                         <li>{this.props.nombre}
                             <img src="./img/logo.png" alt="logo" />

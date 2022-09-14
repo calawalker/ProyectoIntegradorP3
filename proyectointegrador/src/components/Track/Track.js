@@ -31,7 +31,7 @@ class Track extends Component{
                
                 <li><Link to={`/detalletracks/${this.props.info.id}`} >  <img src={this.props.info.album.cover} alt="" />
                 <h4>{this.props.info.title}</h4>
-                <p className={this.state.verMas}>{this.props.info.description}</p> </Link></li>
+                <p className={this.state.verMas}>{this.props.info.album.title}</p> </Link></li>
     
                <button onClick={()=>this.verMas()}>Ver más</button>  
           </div>
