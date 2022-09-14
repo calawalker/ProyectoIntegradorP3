@@ -10,11 +10,23 @@ class Vertodoslosalbumes extends Component {
         super(props)
         this.state = {
             albumes: [],
-            backup: []
+            backup: [],
         }
     }
 
+
+
     componentDidMount() {
+        fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/albums?index=0&limit=8')
+            .then(resp => resp.json())
+            .then(data => this.setState({
+                albumes: data.data,
+                backup: data.data
+            }))
+            .catch(err => console.log(err))
+    }
+
+    masAlbumes (){
         fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/albums')
             .then(resp => resp.json())
             .then(data => this.setState({
@@ -28,13 +40,12 @@ class Vertodoslosalbumes extends Component {
     }
 
 
+
     render() {
         return (
 
             <>
                 <h2>ALBUMES</h2>
-                
-
                 <section className="card-container">
                     {
                         this.state.albumes.length > 0 ?
@@ -44,9 +55,20 @@ class Vertodoslosalbumes extends Component {
                     }
                 </section>
 
+           
+                <div>  
+                    {this.state.albumes.length <= 8 ? 
+                    <button  onClick = {()=>this.masAlbumes()}>
+                       Cargar más
+                    </button> 
+                    : <h2> No hay mas albumes</h2>
+                    
+                    }
+                </div> 
 
-
-
+                
+                    
+                
             </>
         )
     }
