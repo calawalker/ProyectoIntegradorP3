@@ -17,14 +17,16 @@
     font-size: 20px;
     padding: 10px;
     margin-bottom: 20px;
-    width: 24%;
+    width: 50%;
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
 }
 .album-card img{
-    width: 100%;
+    width: 200px;
+    height: 200px;
     margin-bottom: 20px; 
+    
 }
 .album-card:hover,
 .active{
@@ -33,9 +35,7 @@ box-shadow: 0rem 0rem 10px 8px rgb(58 59 69 / 25%);
 .album-card p {
     margin: 3px 0;
 }
-.album-card h2 {
-    margin: 2px 0;
-}
+
 .more{
     color: blue;
     text-align: right;

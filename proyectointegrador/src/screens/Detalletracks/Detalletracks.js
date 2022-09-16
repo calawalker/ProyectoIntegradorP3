@@ -6,7 +6,8 @@ class Detalletracks extends Component {
         super(props)
         this.state = {
             id: props.match.params.id,
-            podcast: {}
+            track: {}
+            
         }
     }
 
@@ -14,19 +15,25 @@ class Detalletracks extends Component {
         fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/track/${this.state.id}`)
             .then(resp => resp.json())
             .then(data => this.setState({
-                podcast: data
+                track: data,
+                
+            
             }))
             .catch(err => console.log(err))
+            
     }
 
+
     render() {
+        console.log(this.state.track.album)
         return (
             <div>
-               <h1>{this.state.album.title}</h1>
-               <img src={this.state.album.cover} alt="" />
-               <h3>Duration: {this.state.album.duration}</h3>
-               <h3>Fans: {this.state.album.fans}</h3>
-               <h3>Release date: {this.state.album.release_date}</h3>
+               <h1>{this.state.track.title}</h1>
+               {/* <img src={this.state.track.album.cover} alt="" /> */}
+               <h3>Duration: {this.state.track.duration}</h3>
+               {/* <h3>Artist: {this.state.track.artist.name}</h3>  */}
+               {/* <h3>Album: {this.state.track.album.title}</h3> */}
+               
              
             </div>
         )

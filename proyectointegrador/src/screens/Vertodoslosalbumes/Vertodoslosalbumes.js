@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react'
 import Album from '../../components/Album/Album';
+import SearchFiltrado from '../../components/SearchFiltrado/SearchFiltrado';
 
 
 
@@ -11,13 +12,15 @@ class Vertodoslosalbumes extends Component {
         this.state = {
             albumes: [],
             backup: [],
+            limite: 15,
+            index: 0, 
         }
     }
 
 
 
     componentDidMount() {
-        fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/albums?index=0&limit=8')
+        fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/albums?index=${this.state.index}&limit=${this.state.limite}`)
             .then(resp => resp.json())
             .then(data => this.setState({
                 albumes: data.data,
@@ -27,13 +30,32 @@ class Vertodoslosalbumes extends Component {
     }
 
     masAlbumes (){
-        fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/albums')
+        fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/albums?index=${this.state.index}&limit=${this.state.limite}`)
             .then(resp => resp.json())
             .then(data => this.setState({
-                albumes: data.data,
-                backup: data.data
+                albumes: this.state.albumes.concat(data.data),
+                backup: this.state.albumes.concat(data.data),
+                index: this.state.index + this.state.limite 
             }))
             .catch(err => console.log(err))
+    }
+
+    buscarAlbumes(searchWord){
+        fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/albums?q=${searchWord}`)
+        .then(resp => resp.json())
+        .then(data => this.setState({
+            albumes: data.data
+        }))
+        .catch(err => console.log(err))
+    }
+
+    filtrarAlbumes(searchWord){
+        let arrayFiltrado = 
+        this.state.backup.filter (album => album.title.toLowerCase().includes(searchWord.toLowerCase()))
+
+        this.setState({
+            albumes: arrayFiltrado
+        })
     }
 
     componentDidUpdate() {
@@ -46,6 +68,7 @@ class Vertodoslosalbumes extends Component {
 
             <>
                 <h2>ALBUMES</h2>
+                <SearchFiltrado filtro={(searchWord)=> this.filtrarAlbumes(searchWord)} />
                 <section className="card-container">
                     {
                         this.state.albumes.length > 0 ?
@@ -57,13 +80,9 @@ class Vertodoslosalbumes extends Component {
 
            
                 <div>  
-                    {this.state.albumes.length <= 8 ? 
                     <button  onClick = {()=>this.masAlbumes()}>
                        Cargar más
-                    </button> 
-                    : <h2> No hay mas albumes</h2>
-                    
-                    }
+                    </button>                    
                 </div> 
 
                 

@@ -31,6 +31,12 @@ class Favoritos extends Component {
     }
   }
 
+  sacarFavoritos() {
+    
+
+
+  }
+
 
   render() {
     return (
