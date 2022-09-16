@@ -83,7 +83,8 @@ class Album extends Component {
           {
               this.state.favorito
               ?
-                <button onClick={()=> this.removeFavorites(this.props.info.id) }>Sacar de favoritos</button>
+                <button onClick={()=> this.removeFavorites(this.props.info.id)  }
+                >Sacar de favoritos</button>
               :
                 <button onClick={()=> this.addFavorites(this.props.info.id) }>Añadir a favoritos</button>
             }
