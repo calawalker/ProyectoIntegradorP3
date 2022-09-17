@@ -13,7 +13,7 @@ class Album extends Component {
   }
 
   componentDidMount(){
-    let storage = localStorage.getItem('favoritos')
+    let storage = localStorage.getItem('favoritosAlbumes')
     let parsedStorage = JSON.parse(storage)
     if(parsedStorage !== null){
       let isFavorite = parsedStorage.includes(this.props.info.id) 
@@ -38,18 +38,18 @@ class Album extends Component {
   }
 
   addFavorites(id){
-    let favStorage = localStorage.getItem('favoritos')
+    let favStorage = localStorage.getItem('favoritosAlbumes')
 
     if(favStorage === null){
       let favArr = [id]
       let arrToString = JSON.stringify(favArr)
-      localStorage.setItem('favoritos', arrToString)
+      localStorage.setItem('favoritosAlbumes', arrToString)
     } else {
       
       let parsedArr = JSON.parse(favStorage)
       parsedArr.push(id)
       let arrToString = JSON.stringify(parsedArr)
-      localStorage.setItem('favoritos', arrToString)
+      localStorage.setItem('favoritosAlbumes', arrToString)
     }
 
     this.setState({
@@ -60,13 +60,13 @@ class Album extends Component {
 
   removeFavorites(id){
 
-    let favStorage = localStorage.getItem('favoritos')
+    let favStorage = localStorage.getItem('favoritosAlbumes')
     let parsedStorage = JSON.parse(favStorage) 
     let filterStorage = parsedStorage.filter(elm => elm !== id) 
 
     let storageToString = JSON.stringify(filterStorage)
 
-    localStorage.setItem('favoritos', storageToString)
+    localStorage.setItem('favoritosAlbumes', storageToString)
 
     this.setState({
       favorito: false

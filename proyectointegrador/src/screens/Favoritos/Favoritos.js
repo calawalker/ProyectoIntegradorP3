@@ -1,92 +1,28 @@
 import React, { Component } from 'react'
-import Album from '../../components/Album/Album'
+import FavoritosAlbumes from '../../components/FavoritosAlbumes/FavoritosAlbumes'
+import FavoritosTracks from '../../components/FavoritosTracks/FavoritosTracks'
+
 
 
 class Favoritos extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      albumesFavoritos: [],
       loading: true
     }
   }
 
-  componentDidMount() {
-    let storage = localStorage.getItem('favoritos')
-
-    if (storage !== null) {
-      let parsedStorage = JSON.parse(storage)
-
-      Promise.all(
-        parsedStorage.map(id => {
-          return (
-            fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/album/${id}`)
-              .then(resp => resp.json())
-              .then(data => data)
-          )
-        })
-      ).then(data => this.setState({
-        albumesFavoritos: data,
-        loading: false
-      }))
-        .catch(err => console.log(err))
-
-    }
-
-/*     if(storage !== null){
-      let parsedStorage = JSON.parse(storage)
-      Promise.all(
-        parsedStorage.map(id => {
-          return (
-            fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/tracks/${id}`)
-              .then(resp => resp.json())
-              .then(data => data)
-          )
-        })
-      ).then(data => this.setState({
-        tracksFavoritos: data,
-        loading: false
-      }))
-        .catch(err => console.log(err))
-    }
- */
-    
-  }
-
-borrar(id) {
-    let favStorage = localStorage.getItem('favoritos')
-    let parsedStorage = JSON.parse(favStorage) 
-    let filterStorage = parsedStorage.filter(elm => elm !== id) 
-
-    let storageToString = JSON.stringify(filterStorage)
-
-    localStorage.setItem('favoritos', storageToString)
-
-    this.setState({
-      favorito: false})
-    
-  let albumesBorrados = this.state.albumesFavoritos.filter(album => album.id !== id);
-    this.setState({
-      albumesFavoritos: albumesBorrados,
-    })
-  }
-
-
   render() {
     return (
       <>
-      <section>
-        {
-          this.state.albumesFavoritos.length > 0 ?
-            this.state.albumesFavoritos.map((album, idx) =>
-              <Album key={album + idx} info={album} isInFavs = {true} borrar={(id) => this.borrar(id)} />
-            )
-            : 'Nada'
-
-        }
+        <section>
+          <h2>ALBUMES FAVORITOS</h2>
+          <FavoritosAlbumes />
+          <h2>TRACKS FAVORITOS</h2>
+          <FavoritosTracks />
         </section>
 
-        
+
       </>
     )
   }

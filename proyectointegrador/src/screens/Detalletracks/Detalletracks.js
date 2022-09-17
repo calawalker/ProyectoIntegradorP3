@@ -32,7 +32,7 @@ class Detalletracks extends Component {
                <h1>{this.state.track.title}</h1>
                {/* <img src={this.state.track.album.cover} alt="" /> */}
                <h3>Duration: {this.state.track.duration}</h3>
-               {/* <h3>Artist: {this.state.track.artist.name}</h3> */} 
+               <h3>Artist: {this.state.track.artist.name}</h3> 
                {/* <h3>Album: {this.state.track.album.title}</h3> */}
                
              
