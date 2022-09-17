@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import Album from '../../components/Album/Album'
-import Track from '../../components/Track/Track'
+
 
 class Favoritos extends Component {
   constructor(props) {
     super(props)
     this.state = {
       albumesFavoritos: [],
-      tracksFavoritos: [], 
-      isFav: true,
       loading: true
     }
   }
@@ -35,7 +33,7 @@ class Favoritos extends Component {
 
     }
 
-    if(storage !== null){
+/*     if(storage !== null){
       let parsedStorage = JSON.parse(storage)
       Promise.all(
         parsedStorage.map(id => {
@@ -51,43 +49,44 @@ class Favoritos extends Component {
       }))
         .catch(err => console.log(err))
     }
-
+ */
     
   }
 
-/*   borrar(id) {
-    let albumesBorrados = this.state.albumesFavoritos.filter(album => album.id !== id);
+borrar(id) {
+    let favStorage = localStorage.getItem('favoritos')
+    let parsedStorage = JSON.parse(favStorage) 
+    let filterStorage = parsedStorage.filter(elm => elm !== id) 
+
+    let storageToString = JSON.stringify(filterStorage)
+
+    localStorage.setItem('favoritos', storageToString)
+
+    this.setState({
+      favorito: false})
+    
+  let albumesBorrados = this.state.albumesFavoritos.filter(album => album.id !== id);
     this.setState({
       albumesFavoritos: albumesBorrados,
     })
-  } */
+  }
 
 
   render() {
     return (
       <>
       <section>
-
         {
           this.state.albumesFavoritos.length > 0 ?
             this.state.albumesFavoritos.map((album, idx) =>
-              <Album key={album + idx} info={album} />
+              <Album key={album + idx} info={album} isInFavs = {true} borrar={(id) => this.borrar(id)} />
             )
-            : 'Cargando..'
+            : 'Nada'
 
         }
         </section>
 
-        <section> 
-        {
-          this.state.tracksFavoritos.length > 0 ?
-            this.state.tracksFavoritos.map((track, idx) =>
-              <Track key={track + idx} info={track} />
-            )
-            : 'Cargando..'
-
-        }
-        </section>
+        
       </>
     )
   }

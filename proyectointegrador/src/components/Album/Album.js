@@ -79,8 +79,11 @@ class Album extends Component {
 
         <li><Link to={`/detallealbum/${this.props.info.id}`} > <img src={this.props.info.cover} alt="" />
           <h4>{this.props.info.title}</h4>
-          <p className={this.state.verMas}>{this.props.info.artist.name}</p></Link></li>
+          <p className={this.state.verMas}>{this.props.info.title}</p></Link></li>
           {
+            this.props.isInFavs ?
+            <button onClick={()=> this.props.borrar(this.props.info.id)} >Borrar</button>
+            :
               this.state.favorito
               ?
                 <button onClick={()=> this.removeFavorites(this.props.info.id)  }
