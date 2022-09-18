@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Album from '../Album/Album'
+import "../FavoritosAlbumes/style.css"
 
 
 class FavoritosAlbumes extends Component {
@@ -58,7 +59,7 @@ borrar(id) {
   render() {
     return (
       <>
-      <section>
+      <section className="card-container">
         {
           this.state.albumesFavoritos.length > 0 ?
             this.state.albumesFavoritos.map((album, idx) =>

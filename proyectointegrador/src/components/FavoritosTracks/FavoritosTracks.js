@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Track from '../../components/Track/Track'
+import "../FavoritosTracks/style.css"
 
 
 class FavoritosTracks extends Component {
@@ -58,7 +59,7 @@ borrar(id) {
   render() {
     return (
       <>
-      <section>
+      <section className="card-container">
         {
           this.state.tracksFavoritos.length > 0 ?
             this.state.tracksFavoritos.map((track, idx) =>

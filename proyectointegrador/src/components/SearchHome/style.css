@@ -1,3 +1,23 @@
+*{
+    box-sizing: border-box;
+}
+ul,ol {
+    padding: 0;
+}
+li {
+    list-style-type:none;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+body {
+    font-family: Josefin sans;
+    font-size: 20px;
+    margin: 0;
+    background-color: rgb(232, 229, 229);
+}
+
 form {
     padding: 30px;
 }

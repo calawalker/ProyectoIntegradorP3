@@ -40,10 +40,11 @@ class Vertodoslosalbumes extends Component {
             .catch(err => console.log(err))
     }
 
+
     buscarAlbumes(searchWord){
         fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/albums?q=${searchWord}`)
-        .then(resp => resp.json())
-        .then(data => this.setState({
+        .then(resp => resp.json()) //paso la información a JSON 
+        .then(data => this.setState({ //actualizo el estado con el array que tiene todos los objetos literales
             albumes: data.data
         }))
         .catch(err => console.log(err))
@@ -68,7 +69,7 @@ class Vertodoslosalbumes extends Component {
 
             <>
                 <h2>ALBUMES</h2>
-                <SearchFiltrado filtro={(searchWord)=> this.filtrarAlbumes(searchWord)} />
+                <SearchFiltrado filtro={(searchWord)=> this.filtrarAlbumes(searchWord)} /> 
                 <section className="card-container">
                     {
                         this.state.albumes.length > 0 ?

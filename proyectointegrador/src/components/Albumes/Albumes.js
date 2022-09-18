@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; 
 import Album from '../Album/Album';
+import '../Albumes/style.css'
 
 
 
