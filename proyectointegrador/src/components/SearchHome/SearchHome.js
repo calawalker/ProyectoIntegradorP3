@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import "../SearchHome/style.css"
 
-
-
 class SearchHome extends Component {
     constructor(props){
         super(props)

@@ -50,9 +50,10 @@ nav ul {
 }
 
 .user img {
-    width: 50px;
+    width: 80px;
+    height: 80px;
     border-radius: 90%;
-    margin-left: 10px;
+    margin: 5px;
 }
 
 h1,h2 {

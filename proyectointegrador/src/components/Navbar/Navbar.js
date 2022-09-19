@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './style.css'
 import { Link } from 'react-router-dom';
 import { Route, Switch } from 'react-router-dom'
@@ -10,73 +10,38 @@ import Notfound from "../../screens/Notfound/Notfound"
 import Detallealbum from "../../screens/Detallealbum/Detallealbum"
 import Detalletracks from "../../screens/Detalletracks/Detalletracks"
 
-class Navbar extends Component {
+function Navbar() {
+    return (
+        <>
+            <nav>
+                <ul className="main-nav">
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/favoritos">Favoritos</Link></li>
+                    <li><Link to="/todoslosalbumes">Todos los albumes</Link></li>
+                    <li><Link to="/todoslostracks">Todos los tracks</Link></li>
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            personajes: [],
-            backup: [],
-            prueba: ''
-        }
-    }
+                </ul>
 
-    componentDidMount() {
-        fetch('https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/albums')
-            .then(resp => resp.json())
-            .then(data => this.setState({
-                personajes: data.results,
-                backup: data.results
-            }))
-            .catch(err => console.log(err))
-    }
-
-    componentDidUpdate() {
-    }
-
-   
-
-    /*     filtrarAlbumes(title){
-            let arrayFiltrado = 
-            this.state.backup.filter
-            (album => album.title.toLowerCase().includes(title.toLowerCase()))
-            this.setState({
-                albums: arrayFiltrado
-            })
-        } */
-
-    render() {
-        return (
-            <>
-                <nav>
-                    <ul className="main-nav">
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/favoritos">Favoritos</Link></li>
-                        <li><Link to="/todoslosalbumes">Todos los albumes</Link></li>
-                        <li><Link to="/todoslostracks">Todos los tracks</Link></li>
-                    </ul>
-                    
-                    <ul className="user">
-                        <li>{this.props.nombre}
-                            <img src="./img/logo.png" alt="logo" />
-                        </li>
-                    </ul>
-                </nav>
-                <Switch>
-                    
-                    <Route path='/' exact={true} component={Home} />
-                    <Route path='/favoritos' component={Favoritos} />
-                    <Route path='/todoslosalbumes' component={Vertodoslosalbumes} />
-                    <Route path='/todoslostracks' component={Vertodoslostracks} />
-                    <Route path='/detallealbum/:id' component={Detallealbum} ></Route>
-                    <Route path='/detalletracks/:id' component={Detalletracks} ></Route>
-                    <Route path='' component={Notfound} />
-                   
-                </Switch>
-            </>
-        )
-    }
+                <ul className="user">
+                    <li>
+                        <h3>Vibras con onda</h3>
+                    </li>
+                    <li>
+                        <img src="./img/logo.png" alt="logo" />
+                    </li>
+                </ul>
+            </nav>
+            <Switch>
+                <Route path='/' exact={true} component={Home} />
+                <Route path='/favoritos' component={Favoritos} />
+                <Route path='/todoslosalbumes' component={Vertodoslosalbumes} />
+                <Route path='/todoslostracks' component={Vertodoslostracks} />
+                <Route path='/detallealbum/:id' component={Detallealbum} ></Route>
+                <Route path='/detalletracks/:id' component={Detalletracks} ></Route>
+                <Route path='' component={Notfound} />
+            </Switch>
+        </>
+    )
 }
-
 
 export default Navbar

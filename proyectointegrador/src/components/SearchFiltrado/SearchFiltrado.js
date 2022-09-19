@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-
-
 class SearchFiltrado extends Component {
     constructor(props){  
         super(props)
@@ -9,7 +7,6 @@ class SearchFiltrado extends Component {
             valor: ''
         }
     }
-
 
     evitarRefresh(event){
         event.preventDefault()
