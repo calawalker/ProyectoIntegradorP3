@@ -18,3 +18,10 @@ body {
     margin: 0;
     background-color: rgb(232, 229, 229);
 }
+
+img {
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+
+}

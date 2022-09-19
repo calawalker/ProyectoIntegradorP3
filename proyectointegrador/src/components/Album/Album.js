@@ -82,17 +82,17 @@ class Album extends Component {
           <p className={this.state.verMas}>{this.props.info.title}</p></Link></li>
           {
             this.props.isInFavs ?
-            <button onClick={()=> this.props.borrar(this.props.info.id)} >Borrar</button>
+            <button onClick={()=> this.props.eliminar(this.props.info.id)} >Borrar</button>
             :
               this.state.favorito
               ?
-                <button onClick={()=> this.removeFavorites(this.props.info.id)  }
+                <button  onClick={()=> this.removeFavorites(this.props.info.id)  }
                 >Sacar de favoritos</button>
               :
                 <button onClick={()=> this.addFavorites(this.props.info.id) }>Añadir a favoritos</button>
             }
 
-        <button onClick={() => this.verMas()}>Ver más</button>
+        <button  onClick={() => this.verMas()}>Ver más</button>
       </div>
 
     )

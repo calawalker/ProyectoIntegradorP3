@@ -8,7 +8,7 @@ class FavoritosAlbumes extends Component {
     super(props)
     this.state = {
       albumesFavoritos: [],
-      loading: true
+      
     }
   }
 
@@ -28,13 +28,11 @@ class FavoritosAlbumes extends Component {
         })
       ).then(data => this.setState({
         albumesFavoritos: data,
-        loading: false
+        
       }))
         .catch(err => console.log(err))
 
     }
-
-    
   }
 
 borrar(id) {
@@ -46,9 +44,6 @@ borrar(id) {
 
     localStorage.setItem('favoritosAlbumes', storageToString)
 
-    this.setState({
-      favorito: false})
-    
   let albumesBorrados = this.state.albumesFavoritos.filter(album => album.id !== id);
     this.setState({
       albumesFavoritos: albumesBorrados,
@@ -63,7 +58,7 @@ borrar(id) {
         {
           this.state.albumesFavoritos.length > 0 ?
             this.state.albumesFavoritos.map((album, idx) =>
-              <Album key={album + idx} info={album} isInFavs = {true} borrar={(id) => this.borrar(id)} />
+              <Album key={album + idx} info={album} isInFavs = {true} eliminar={(id) => this.borrar(id)} />
             )
             : 'No hay favoritos'
 

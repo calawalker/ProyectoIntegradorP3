@@ -63,6 +63,7 @@ class Navbar extends Component {
                     </ul>
                 </nav>
                 <Switch>
+                    
                     <Route path='/' exact={true} component={Home} />
                     <Route path='/favoritos' component={Favoritos} />
                     <Route path='/todoslosalbumes' component={Vertodoslosalbumes} />
@@ -70,6 +71,7 @@ class Navbar extends Component {
                     <Route path='/detallealbum/:id' component={Detallealbum} ></Route>
                     <Route path='/detalletracks/:id' component={Detalletracks} ></Route>
                     <Route path='' component={Notfound} />
+                   
                 </Switch>
             </>
         )

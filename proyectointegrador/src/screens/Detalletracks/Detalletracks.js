@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import "../Detalletracks/style.css"
+import './style.css'
 
 class Detalletracks extends Component {
 
@@ -7,7 +7,8 @@ class Detalletracks extends Component {
         super(props)
         this.state = {
             id: props.match.params.id,
-            track: {}
+            track: {},
+            loading: true
             
         }
     }
@@ -17,8 +18,7 @@ class Detalletracks extends Component {
             .then(resp => resp.json())
             .then(data => this.setState({
                 track: data,
-                
-            
+                loading: false
             }))
             .catch(err => console.log(err))
             
@@ -26,20 +26,25 @@ class Detalletracks extends Component {
 
 
     render() {
-        console.log(this.state.track);
-
         return (
             <div>
-               <h1>{this.state.track.title}</h1>
-               {/* <img src={this.state.track.album.cover} alt="" /> */}
-               <h3>Duration: {this.state.track.duration}</h3>
-               <h3>Artist: {this.state.track.artist.name}</h3> 
-               {/* <h3>Album: {this.state.track.album.title}</h3> */}
-               
-             
+                {
+                    this.state.loading ?
+                        <h1> Cargando... </h1> :
+                        <>
+                            <h2>Titulo del track: {this.state.track.title}</h2>
+                            <img src={this.state.track.album.cover} alt="Portdada del Album de este track" />
+                            <h3>Artista: {this.state.track.artist.name}</h3>
+                            <h3>Album: {this.state.track.album.title}</h3>
+
+                        </>
+
+                }
+
             </div>
         )
     }
 }
 
 export default Detalletracks
+

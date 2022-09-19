@@ -54,7 +54,7 @@ class Home extends Component {
                         <h2>No se encontraron resultados</h2>
                         :
                         this.state.resultados.length > 0 ?
-                            this.state.resultados.map((elm, idx) => <h2 key={elm.title + idx}> {elm.title}</h2>)
+                            this.state.resultados.map((elm, idx) => <h3 key={elm.title + idx}> {elm.title}</h3>)
                             : ''
                             
                 }

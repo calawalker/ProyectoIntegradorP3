@@ -1,16 +1,21 @@
-*{
+* {
     box-sizing: border-box;
 }
-ul,ol {
+
+ul,
+ol {
     padding: 0;
 }
+
 li {
-    list-style-type:none;
+    list-style-type: none;
 }
+
 a {
     text-decoration: none;
     color: #000;
 }
+
 body {
     font-family: Josefin sans;
     font-size: 20px;
@@ -18,7 +23,7 @@ body {
     background-color: rgb(232, 229, 229);
 }
 
-.album-card{
+.album-card {
     color: #777;
     font-size: 20px;
     padding: 10px;
@@ -26,38 +31,59 @@ body {
     width: 50%;
     background: #fff;
     border-radius: 5px;
-    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15);
 }
-.album-card img{
+
+.album-card img {
     width: 200px;
     height: 200px;
-    margin-bottom: 20px; 
-    
+    margin-bottom: 20px;
+
 }
+
 .album-card:hover,
-.active{
-box-shadow: 0rem 0rem 10px 8px rgb(58 59 69 / 25%);
+.active {
+    box-shadow: 0rem 0rem 10px 8px rgb(58 59 69 / 25%);
 }
+
 .album-card p {
     margin: 3px 0;
 }
 
-.more{
+.more {
     color: blue;
     text-align: right;
 }
+
 .delete {
     color: red;
     text-align: right;
 }
+
 .more:hover,
 .delete:hover {
     text-decoration: underline;
     cursor: pointer;
 }
-.show{
+
+.show {
     display: block;
 }
-.hide{
+
+.hide {
     display: none;
+}
+
+button {
+    background-color: #afaabc; 
+    font-family: Josefin sans;
+    border: none;
+    color: white;
+    padding: 10px 23px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 8px
+
 }

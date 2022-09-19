@@ -45,9 +45,6 @@ borrar(id) {
     let storageToString = JSON.stringify(filterStorage)
 
     localStorage.setItem('favoritosTracks', storageToString)
-
-    this.setState({
-      favorito: false})
     
   let tracksBorrados = this.state.tracksFavoritos.filter(track => track.id !== id);
     this.setState({
